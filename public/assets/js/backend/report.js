@@ -22,21 +22,27 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                 url: $.fn.bootstrapTable.defaults.extend.index_url,
                 pk: 'ID',
                 sortName: 'ID',
+                sortOrder:"asc",
                 columns: [
                     [
                         {checkbox: true},
-                        {field: 'ID', title: __('Id')},
-                        {field: 'time', title: __('Time'), operate: 'LIKE'},
+                        {field: 'ID', title: __('Id'), sortable:true, formatter:function (value,row,index)
+                        {
+                            return index+1;
+                        }},
+                        {field: 'time', title: __('Time'), operate: 'RANGE',formatter: Table.api.formatter.datetime, datetimeFormat:"YYYY-MM-DD"},
                         {field: 'BH', title: __('Bh'), operate: 'LIKE'},
                         {field: 'XFFS', title: __('Xffs'), operate: 'LIKE'},
                         {field: 'XFR', title: __('Xfr'), operate: 'LIKE'},
                         {field: 'SJDX', title: __('Sjdx'), operate: 'LIKE'},
                         {field: 'ZW', title: __('Zw'), operate: 'LIKE'},
                         {field: 'ZZMW', title: __('Zzmw'), operate: 'LIKE'},
+                        {field: 'WTZY', title: __('Wtzy'),width:'150px'},
                         {field: 'WJLX', title: __('Wjlx'), operate: 'LIKE'},
                         {field: 'BJQK', title: __('Bjqk'), operate: 'LIKE'},
                         {field: 'CZFS', title: __('Czfs'), operate: 'LIKE'},
                         {field: 'DZJL', title: __('Dzjl'), operate: 'LIKE'},
+                        {field: 'remark', title: __('remark'), operate: 'LIKE'},
                         {field: 'JBRY', title: __('Jbry'), operate: 'LIKE'},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
