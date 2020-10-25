@@ -1,0 +1,94 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[time]" type="text" value="{:$row.time?datetime($row.time):''}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Bh')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-BH" class="form-control" name="row[BH]" type="text" value="{$row.BH|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Xffs')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-XFFS" data-rule="required" class="form-control" name="row[XFFS]" type="text" value="{$row.XFFS|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Xfr')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-XFR" data-rule="required" class="form-control" name="row[XFR]" type="text" value="{$row.XFR|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Sjdx')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-SJDX" class="form-control" name="row[SJDX]" type="text" value="{$row.SJDX|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Zw')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ZW" class="form-control" name="row[ZW]" type="text" value="{$row.ZW|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Zzmw')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-ZZMW" class="form-control" name="row[ZZMW]" type="text" value="{$row.ZZMW|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Wtzy')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-WTZY" data-rule="required" class="form-control " rows="5" name="row[WTZY]" cols="50">{$row.WTZY|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Wjlx')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-WJLX" data-rule="required" class="form-control" name="row[WJLX]" type="text" value="{$row.WJLX|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Bjqk')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-BJQK" data-rule="required" class="form-control" name="row[BJQK]" type="text" value="{$row.BJQK|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Czfs')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-CZFS" data-rule="required" class="form-control" name="row[CZFS]" type="text" value="{$row.CZFS|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Dzjl')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-DZJL" data-rule="required" class="form-control" name="row[DZJL]" type="text" value="{$row.DZJL|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-remark" class="form-control " rows="5" name="row[remark]" cols="50">{$row.remark|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Jbry')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-JBRY" data-rule="required" class="form-control" name="row[JBRY]" type="text" value="{$row.JBRY|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
