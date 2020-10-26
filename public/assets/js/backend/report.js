@@ -30,8 +30,8 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {
                             return index+1;
                         }},
-                        {field: 'time', title: __('Time'), operate: 'RANGE',formatter: Table.api.formatter.datetime, datetimeFormat:"YYYY.MM.DD"},
-                        {field: 'BH', title: __('Bh'), operate: 'LIKE',formatter: Table.api.formatter.datetime,datetimeFormat:"YYYY-MM"},
+                        {field: 'time', title: __('Time'), operate: 'RANGE',formatter: Table.api.formatter.datetime, datetimeFormat:"YYYY-MM-DD"},
+                        {field: 'BH', title: __('Bh'), operate: 'LIKE',formatter: Table.api.formatter.datetime, datetimeFormat:"YYYY-MM"},
                         {field: 'XFFS', title: __('Xffs'), operate: 'LIKE'},
                         {field: 'XFR', title: __('Xfr'), operate: 'LIKE'},
                         {field: 'SJDX', title: __('Sjdx'), operate: 'LIKE'},
