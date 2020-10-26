@@ -42,7 +42,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'BJQK', title: __('Bjqk'), operate: 'LIKE'},
                         {field: 'CZFS', title: __('Czfs'), operate: 'LIKE'},
                         {field: 'DZJL', title: __('Dzjl'), operate: 'LIKE'},
-                        {field: 'remark', title: __('remark'), operate: 'LIKE'},
+                        {field: 'remark', title: __('remark'), operate: 'LIKE',width:'100px'},
                         {field: 'JBRY', title: __('Jbry'), operate: 'LIKE'},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]

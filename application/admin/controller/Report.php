@@ -27,7 +27,7 @@ class Report extends Backend
 
     public function import()
     {
-        parent::import();
+        return parent::import();
     }
 
     /**
