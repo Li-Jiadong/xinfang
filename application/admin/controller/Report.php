@@ -114,8 +114,8 @@ class Report extends Backend
                 $temp = array_combine($fields, $values);
                 foreach ($temp as $k => $v) {
                     if (isset($fieldArr[$k]) && $k !== '') {
-                        if($k=='信访接件日期' || $k=="编号"){
-                            $v=($v-25569)*24*3600;
+                        if($k=='信访接件日期'){
+                            $v=(intval($v)-25569)*24*3600;
                         }
                         $row[$fieldArr[$k]] = $v;
                     }

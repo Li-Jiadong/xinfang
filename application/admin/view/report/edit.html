@@ -9,7 +9,7 @@
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">{:__('Bh')}:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-BH" class="form-control datetimepicker" name="row[BH]" type="text" data-date-format="YYYY-MM" data-use-current="true" value="{:$row.BH?datetime($row.BH):''}">
+            <input id="c-BH" data-rule="required" class="form-control" name="row[BH]" type="text" value="{$row.BH|htmlentities}">
         </div>
     </div>
     <div class="form-group">
