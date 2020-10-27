@@ -21,7 +21,7 @@ define(['jquery', 'bootstrap', 'moment', 'moment/locale/zh-cn', 'bootstrap-table
                 preventInjection: false,
                 mso: {
                     onMsoNumberFormat: function (cell, row, col) {
-                        return (row > 0 && col >= 0) ? '\\@' : '';
+                        return (row > 0 && col != 1) ? '\\@' : '';
                     },
                 },
                 ignoreColumn: [0, 'operate'] //默认不导出第一列(checkbox)与操作(operate)列
