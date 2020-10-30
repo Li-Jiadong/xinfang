@@ -21,9 +21,13 @@ class Report extends Backend
      * @var \app\admin\model\Report
      */
     protected $model = null;
+    protected $searchFields = 'BH,SJDX';
+
+    
 
     public function _initialize()
     {
+        
         parent::_initialize();
         $this->model = new \app\admin\model\Report;
 
