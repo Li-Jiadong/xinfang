@@ -22,26 +22,34 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                 url: $.fn.bootstrapTable.defaults.extend.index_url,
                 pk: 'ID',
                 sortName: 'ID',
-                search:false,
-                showToggle: false,
-                showColumns: false,
+                sortOrder:"asc",
                 columns: [
                     [
                         {checkbox: true},
-                        {field: 'ID', title: __('Id')},
-                        {field: 'time', title: __('Time'), operate:'RANGE', addclass:'datetimerange', autocomplete:false, formatter: Table.api.formatter.datetime},
+                        {field: 'ID', title: __('Id'), sortable:true, formatter:function (value,row,index)
+                        {
+                            return index+1;
+                        }},
+                        {field: 'time', title: __('Time'), operate: 'RANGE',formatter: Table.api.formatter.datetime, datetimeFormat:"YYYY-MM-DD"},
+                        {field: 'BH', title: __('Bh'), operate: 'LIKE'},
+                        {field: 'XFFS', title: __('Xffs'), operate: 'LIKE'},
                         {field: 'XFR', title: __('Xfr'), operate: 'LIKE'},
+                        {field: 'SJDX', title: __('Sjdx'), operate: 'LIKE'},
                         {field: 'ZW', title: __('Zw'), operate: 'LIKE'},
-                        {field: 'DW', title: __('Dw'), operate: 'LIKE',require:false},
-                        {field: 'WTXZ', title: __('Wtxz'), searchList: {"0":__('Wtxz 0'),"1":__('Wtxz 1'),"2":__('Wtxz 2')}, formatter: Table.api.formatter.normal},
-                        {field: 'XFFS', title: __('Xffs'), searchList: {"0":__('Xffs 0'),"1":__('Xffs 1'),"2":__('Xffs 2'),"3":__('Xffs 3'),"4":__('Xffs 4')}, formatter: Table.api.formatter.normal},
-                        {field: 'NRZY', title: __('内容摘要'), operate: false,},
-                        {field: 'SJRY', title: __('Sjry'), operate: 'LIKE'},
-                        {field: 'SJRYZW', title: __('Sjryzw'), operate: 'LIKE'},
-                        {field: 'SJRYDW', title: __('Sjrydw'), operate: 'LIKE'},
-                        {field: 'CLQK', title: __('处理情况'), operate: false,},
-                        {field: 'remark', title: __('备注'), operate: false,},
-                        {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
+                        {field: 'ZZMW', title: __('Zzmw'), operate: 'LIKE'},
+                        {field: 'WTZY', title: __('Wtzy'),width:'150px'},
+                        {field: 'WJLX', title: __('Wjlx'), operate: 'LIKE'},
+                        {field: 'BJQK', title: __('Bjqk'), operate: 'LIKE'},
+                        {field: 'CZFS', title: __('Czfs'), operate: 'LIKE'},
+                        {field: 'DZJL', title: __('Dzjl'), operate: 'LIKE'},
+                        {field: 'remark', title: __('remark'),width:'150px'},
+                        {field: 'JBRY', title: __('Jbry'), operate: 'LIKE'},
+                        {field: 'operate', title: __('Operate'), table: table,width:'150px',
+                         events: Table.api.events.operate, 
+                         buttons:[
+                            {name: 'upload', text: __('附件'), classname: 'btn btn-xs btn-primary btn-success btn-upload  btn-addtabs', url: 'report/attachment/index', callback: function (data){}},
+                         ],
+                         formatter: Table.api.formatter.operate}
                     ]
                 ]
             });
