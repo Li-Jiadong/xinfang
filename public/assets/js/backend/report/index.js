@@ -26,23 +26,23 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                 columns: [
                     [
                         {checkbox: true},
-                        {field: 'ID', title: __('Id'), sortable:true, formatter:function (value,row,index)
+                        {field: 'ID', title: __('Id'), sortable:true,operate: false, formatter:function (value,row,index)
                         {
                             return index+1;
                         }},
-                        {field: 'time', title: __('Time'), operate: 'RANGE',formatter: Table.api.formatter.datetime, datetimeFormat:"YYYY-MM-DD"},
-                        {field: 'BH', title: __('Bh'), operate: 'LIKE'},
+                        {field: 'time', title: __('Time'),operate: false,formatter: Table.api.formatter.datetime, datetimeFormat:"YYYY-MM-DD"},
+                        {field: 'BH', title: __('Bh'),operate: false},
                         {field: 'XFFS', title: __('Xffs'), operate: 'LIKE'},
                         {field: 'XFR', title: __('Xfr'), operate: 'LIKE'},
                         {field: 'SJDX', title: __('Sjdx'), operate: 'LIKE'},
                         {field: 'ZW', title: __('Zw'), operate: 'LIKE'},
                         {field: 'ZZMW', title: __('Zzmw'), operate: 'LIKE'},
-                        {field: 'WTZY', title: __('Wtzy'),width:'150px'},
+                        {field: 'WTZY', title: __('Wtzy'),width:'150px',operate: 'LIKE'},
                         {field: 'WJLX', title: __('Wjlx'), operate: 'LIKE'},
                         {field: 'BJQK', title: __('Bjqk'), operate: 'LIKE'},
                         {field: 'CZFS', title: __('Czfs'), operate: 'LIKE'},
                         {field: 'DZJL', title: __('Dzjl'), operate: 'LIKE'},
-                        {field: 'remark', title: __('remark'),width:'150px'},
+                        {field: 'remark', title: __('remark'),width:'150px',operate: false},
                         {field: 'JBRY', title: __('Jbry'), operate: 'LIKE'},
                         {field: 'operate', title: __('Operate'), table: table,width:'150px',
                          events: Table.api.events.operate, 
