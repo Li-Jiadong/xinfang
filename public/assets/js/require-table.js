@@ -15,7 +15,7 @@ define(['jquery', 'bootstrap', 'moment', 'moment/locale/zh-cn', 'bootstrap-table
             idTable: 'commonTable',
             showExport: true,
             exportDataType: "auto",
-            exportTypes: ['json', 'xml', 'csv', 'txt', 'doc', 'excel'],
+            exportTypes: ['json', 'xml', 'csv', 'txt', 'doc', 'excel','xlsx'],
             exportOptions: {
                 fileName: 'export_' + Moment().format("YYYY-MM-DD"),
                 preventInjection: false,
@@ -24,7 +24,7 @@ define(['jquery', 'bootstrap', 'moment', 'moment/locale/zh-cn', 'bootstrap-table
                         return (row > 0 && col != 1) ? '\\@' : '';
                     },
                 },
-                ignoreColumn: [0, 'operate'] //默认不导出第一列(checkbox)与操作(operate)列
+                ignoreColumn: [0,1, 'operate'] //默认不导出第一列(checkbox)与操作(operate)列
             },
             pageSize: localStorage.getItem("pagesize") || 10,
             pageList: [10, 15, 20, 25, 50, 'All'],
