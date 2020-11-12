@@ -15,13 +15,13 @@ define(['jquery', 'bootstrap', 'moment', 'moment/locale/zh-cn', 'bootstrap-table
             idTable: 'commonTable',
             showExport: true,
             exportDataType: "auto",
-            exportTypes: ['json', 'xml', 'csv', 'txt', 'doc', 'excel','xlsx'],
+            exportTypes: ['json', 'xml', 'csv', 'txt', 'doc', 'excel'],
             exportOptions: {
                 fileName: 'export_' + Moment().format("YYYY-MM-DD"),
                 preventInjection: false,
                 mso: {
                     onMsoNumberFormat: function (cell, row, col) {
-                        return (row > 0 && col != 1) ? '\\@' : '';
+                        return (row > 0 && col != 0) ? '\\@' : '';
                     },
                 },
                 ignoreColumn: [0,1, 'operate'] //默认不导出第一列(checkbox)与操作(operate)列
