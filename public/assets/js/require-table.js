@@ -194,6 +194,7 @@ define(['jquery', 'bootstrap', 'moment', 'moment/locale/zh-cn', 'bootstrap-table
                     if (!isNaN(pagesize)) {
                         localStorage.setItem("pagesize", pagesize);
                     }
+                    //alert("hello world");
                 });
                 //当执行搜索时
                 table.on('search.bs.table common-search.bs.table', function (e, settings, data) {
@@ -387,6 +388,7 @@ define(['jquery', 'bootstrap', 'moment', 'moment/locale/zh-cn', 'bootstrap-table
                 });
                 // 批量删除按钮事件
                 toolbar.on('click', Table.config.delbtn, function () {
+                    
                     var that = this;
                     var ids = Table.api.selectedids(table);
                     Layer.confirm(
@@ -394,9 +396,15 @@ define(['jquery', 'bootstrap', 'moment', 'moment/locale/zh-cn', 'bootstrap-table
                         {icon: 3, title: __('Warning'), offset: 0, shadeClose: true},
                         function (index) {
                             Table.api.multi("del", ids, table, that);
+                            //alert("hello world");
+                            setTimeout(function(){
+                                table.bootstrapTable('refresh');
+                            },500)
+                            
                             Layer.close(index);
                         }
                     );
+                    
                 });
                 // 拖拽排序
                 require(['dragsort'], function () {

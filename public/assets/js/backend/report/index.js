@@ -21,6 +21,8 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
             table.bootstrapTable({
                 url: $.fn.bootstrapTable.defaults.extend.index_url,
                 pk: 'ID',
+                smartDisplay:false,
+                pageList:[10,25,50,100],
                 sortName: 'ID',
                 sortOrder:"asc",
                 columns: [
@@ -28,12 +30,15 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {checkbox: true},
                         {field: 'ID', title: __('Id'), sortable:true,operate: false, formatter:function (value,row,index)
                         {
-                            return index+1;
+                            var options = table.bootstrapTable('getOptions');
+                            var pageNumber = options.pageNumber;
+                            var pageSize = options.pageSize;
+                            return (pageNumber - 1) * pageSize + 1 + index;
                         }},
-                        {field: 'time', title: __('Time'),operate: false,formatter: Table.api.formatter.datetime, datetimeFormat:"YYYY-MM-DD"},
+                        {field: 'time', title: __('Time'),sortable:true,operate: false,formatter: Table.api.formatter.datetime, datetimeFormat:"YYYY-MM-DD"},
                         {field: 'BH', title: __('Bh'),operate: false},
                         {field: 'XFFS', title: __('Xffs'), operate: 'LIKE'},
-                        {field: 'XFR', title: __('Xfr'), operate: 'LIKE'},
+                        {field: 'XFR', title: __('Xfr'), width:'100px',operate: 'LIKE'},
                         {field: 'SJDX', title: __('Sjdx'), operate: 'LIKE'},
                         {field: 'ZW', title: __('Zw'), operate: 'LIKE'},
                         {field: 'ZZMW', title: __('Zzmw'), operate: 'LIKE'},
@@ -41,8 +46,8 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'WJLX', title: __('Wjlx'), operate: 'LIKE'},
                         {field: 'BJQK', title: __('Bjqk'), operate: 'LIKE'},
                         {field: 'CZFS', title: __('Czfs'), operate: 'LIKE'},
-                        {field: 'DZJL', title: __('Dzjl'), operate: 'LIKE'},
-                        {field: 'remark', title: __('remark'),width:'150px',operate: false},
+                        {field: 'DZJL', title: __('Dzjl'), width:'100px',operate: 'LIKE'},
+                        {field: 'remark', title: __('remark'),width:'100px',operate: false},
                         {field: 'JBRY', title: __('Jbry'), operate: 'LIKE'},
                         {field: 'operate', title: __('Operate'), table: table,width:'150px',
                          events: Table.api.events.operate, 

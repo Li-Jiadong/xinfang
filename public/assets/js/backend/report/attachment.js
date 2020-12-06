@@ -20,16 +20,22 @@ define(['jquery', 'bootstrap', 'backend', 'form', 'table'], function ($, undefin
             table.bootstrapTable({
                 url: $.fn.bootstrapTable.defaults.extend.index_url,
                 sortName: 'id',
+                smartDisplay:false,
+                pageList:[10,25,50,100],
                 search:false,
                 showColumns: false,
                 showColumns: false,
                 showExport: false,
+                
                 columns: [
                     [
                         {field: 'state', checkbox: true},
                         {field: 'id', title: __('Id'), sortable:true, formatter:function (value,row,index)
                         {
-                            return index+1;
+                            var options = table.bootstrapTable('getOptions');
+                            var pageNumber = options.pageNumber;
+                            var pageSize = options.pageSize;
+                            return (pageNumber - 1) * pageSize + 1 + index;
                         }},
                         // {field: 'user_id', title: __('User_id'), visible: false, addClass: "selectpage", extend: "data-source='user/user/index' data-field='nickname'"},
                         {field: 'preview', title: __('Preview'), formatter: Controller.api.formatter.thumb, operate: false},
@@ -177,7 +183,9 @@ define(['jquery', 'bootstrap', 'backend', 'form', 'table'], function ($, undefin
                     return '<a href="' + row.fullurl + '" target="_blank" class="label bg-green">' + row.url + '</a>';
                 },
                 filename: function (value, row, index) {
-                    return '<div style="width:180px;margin:0 auto;text-align:center;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;">' + Table.api.formatter.search.call(this, value, row, index) + '</div>';
+                    
+                    //return '<div style="width:180px;margin:0 auto;text-align:center;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;">' + Table.api.formatter.search.call(this, value, row, index) + '</div>';
+                    return '<a href="' + row.fullurl + '" target="_blank"><div style="width:180px;margin:0 auto;text-align:center;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;">'+row.filename+'</div></a>';
                 },
             }
         }
